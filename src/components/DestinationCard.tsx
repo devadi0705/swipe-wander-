@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Globe, Calendar, ThermometerSun, Waves, Mountain, Music, Trophy, Passport } from 'lucide-react';
+import { Globe, Calendar, ThermometerSun, Waves, Mountain, Music, Trophy, Landmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -104,7 +104,7 @@ const DestinationCard: React.FC = () => {
             <div>
               <Label htmlFor="visaRequirements">Visa Requirements</Label>
               <div className="flex items-center mt-1">
-                <Passport className="mr-2 h-4 w-4 text-gray-500" />
+                <Landmark className="mr-2 h-4 w-4 text-gray-500" />
                 <Input 
                   id="visaRequirements"
                   name="visaRequirements"
