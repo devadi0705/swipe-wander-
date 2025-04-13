@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { MediaItem } from './MediaCard';
 import { 
   Plane, Mountain, Waves, Coffee, Utensils, 
-  Map, Camera, Star, Heart, Tree 
+  Map, Camera, Star, Heart, Trees 
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import HighlightStory from './HighlightStory';
@@ -31,7 +30,7 @@ export const highlightThemes = {
   tropical: {
     primary: 'from-orange-400 to-amber-300',
     secondary: 'bg-amber-50',
-    icon: Tree,  // Replaced PalmTree with Tree
+    icon: Trees,
     name: 'Tropical Paradise'
   },
   food: {
