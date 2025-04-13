@@ -1,15 +1,15 @@
-
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
-import { Camera, CalendarDays, MapPin } from 'lucide-react';
+import { Camera, CalendarDays, MapPin, BookOpen, Plus } from 'lucide-react';
 import { toast } from 'sonner';
 
 import NavBar from '@/components/NavBar';
 import MediaUploader from '@/components/MediaUploader';
 import MediaCard, { MediaItem } from '@/components/MediaCard';
 import MediaGallery from '@/components/MediaGallery';
+import HighlightsView from '@/components/HighlightsView';
+import CreateHighlightModal from '@/components/CreateHighlightModal';
 
 // Mock function to simulate AI generating captions
 const generateCaption = (file: File): string => {
@@ -36,11 +36,14 @@ const generateCaption = (file: File): string => {
   return `${randomActivity} in ${randomLocation}`;
 };
 
+export type ViewMode = 'grid' | 'organized' | 'highlights';
+
 const Gallery: React.FC = () => {
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([]);
   const [isUploading, setIsUploading] = useState(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'organized'>('grid');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [groupBy, setGroupBy] = useState<'date' | 'location'>('date');
+  const [isCreateHighlightOpen, setIsCreateHighlightOpen] = useState(false);
   
   const handleMediaUpload = async (files: File[]) => {
     setIsUploading(true);
@@ -135,6 +138,25 @@ const Gallery: React.FC = () => {
               )}
               Organized View
             </Button>
+            <Button 
+              variant={viewMode === 'highlights' ? 'default' : 'outline'} 
+              onClick={() => setViewMode('highlights')}
+              className={viewMode === 'highlights' ? 'button-gradient' : ''}
+            >
+              <BookOpen className="mr-2 h-4 w-4" />
+              Highlights
+            </Button>
+            
+            {viewMode === 'highlights' && (
+              <Button 
+                variant="outline"
+                size="sm"
+                onClick={() => setIsCreateHighlightOpen(true)}
+              >
+                <Plus className="mr-1 h-4 w-4" />
+                New Highlight
+              </Button>
+            )}
             
             {viewMode === 'organized' && (
               <div className="ml-2">
@@ -189,10 +211,18 @@ const Gallery: React.FC = () => {
               </div>
             )}
           </div>
-        ) : (
+        ) : viewMode === 'organized' ? (
           <MediaGallery items={mediaItems} groupBy={groupBy} />
+        ) : (
+          <HighlightsView mediaItems={mediaItems} />
         )}
       </main>
+
+      <CreateHighlightModal 
+        isOpen={isCreateHighlightOpen} 
+        onClose={() => setIsCreateHighlightOpen(false)}
+        mediaItems={mediaItems}
+      />
     </div>
   );
 };
