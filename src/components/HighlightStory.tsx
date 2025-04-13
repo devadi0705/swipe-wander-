@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -104,7 +103,7 @@ const HighlightStory: React.FC<HighlightStoryProps> = ({ highlight, onClose }) =
         </Button>
         
         {/* Story content */}
-        <Carousel className="w-full h-full" activeItem={currentIndex}>
+        <Carousel className="w-full h-full">
           <CarouselContent className="h-full">
             {items.map((item, index) => {
               const currentItem = items[index];
