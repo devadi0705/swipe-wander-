@@ -1,9 +1,11 @@
 
 import React from 'react';
-import { MapPin, User, MessageCircle, Camera } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { MapPin, User, MessageCircle, Camera, Calendar } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
+  const location = useLocation();
+  
   return (
     <header className="w-full py-4 px-6">
       <div className="container max-w-6xl mx-auto">
@@ -15,8 +17,17 @@ const NavBar: React.FC = () => {
           </div>
           
           <div className="flex gap-1 sm:gap-4">
-            <Link to="/gallery" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+            <Link 
+              to="/gallery" 
+              className={`p-2 rounded-full hover:bg-gray-100 transition-colors ${location.pathname === '/gallery' ? 'bg-gray-100' : ''}`}
+            >
               <Camera className="h-6 w-6 text-gray-600" />
+            </Link>
+            <Link 
+              to="/plan" 
+              className={`p-2 rounded-full hover:bg-gray-100 transition-colors ${location.pathname === '/plan' ? 'bg-gray-100' : ''}`}
+            >
+              <Calendar className="h-6 w-6 text-gray-600" />
             </Link>
             <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
               <MapPin className="h-6 w-6 text-gray-600" />
