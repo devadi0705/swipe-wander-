@@ -1,8 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  Plane, 
   Flag, 
   Trees, 
   Landmark, 
@@ -22,14 +20,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 
-// Define types for our onboarding state
 type Destination = 'Delhi' | 'Goa' | 'Kerala' | 'Rajasthan' | 'custom';
 type TravelStyle = 'backpacker' | 'luxe' | 'nature' | 'urban';
 type TravelVibe = 'sunrise' | 'festival' | 'foodie' | 'insta';
 type TripDuration = 'weekend' | 'week' | 'month' | 'unlimited';
 type MustPackItem = 'camera' | 'headphones' | 'journal' | 'snacks';
 
-// Main state interface for the onboarding flow
 interface OnboardingState {
   destination: Destination | null;
   customDestination: string;
@@ -53,7 +49,6 @@ const Onboarding: React.FC = () => {
   });
 
   const handleNext = () => {
-    // Validate current step
     if (state.step === 0 && !state.destination && !state.customDestination) {
       toast.error("Please select a destination or type your own");
       return;
@@ -79,15 +74,12 @@ const Onboarding: React.FC = () => {
       return;
     }
 
-    // If it's the last step, complete onboarding
     if (state.step === 4) {
-      // In a real app, you might send this data to a backend or store in local storage
       toast.success("Onboarding complete! Welcome to WanderMatch!");
       navigate('/');
       return;
     }
 
-    // Move to the next step
     setState({ ...state, step: state.step + 1 });
   };
 
