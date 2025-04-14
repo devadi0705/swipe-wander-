@@ -1,7 +1,22 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Airplane, Flag, PalmTree, Landmark, Backpack, Wine, TreePine, Building2, Sunrise, Music, Utensils, Camera as CameraIcon, Headphones, Book, Candy } from 'lucide-react';
+import { 
+  airplane, 
+  flag, 
+  tree, 
+  landmark, 
+  backpack, 
+  wine, 
+  treePine, 
+  building2, 
+  sunrise, 
+  music, 
+  utensils, 
+  camera as CameraIcon, 
+  headphones, 
+  book, 
+  candy 
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
@@ -151,25 +166,25 @@ const DestinationStep: React.FC<DestinationStepProps> = ({
     {
       id: 'Japan',
       name: 'Japan',
-      icon: <Airplane className="h-5 w-5 text-blue-400" />,
+      icon: <airplane className="h-5 w-5 text-blue-400" />,
       image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070'
     },
     {
       id: 'Iceland',
       name: 'Iceland',
-      icon: <Flag className="h-5 w-5 text-blue-600" />,
+      icon: <flag className="h-5 w-5 text-blue-600" />,
       image: 'https://images.unsplash.com/photo-1529963183134-61a90db47eaf?q=80&w=2070'
     },
     {
       id: 'Bali',
       name: 'Bali',
-      icon: <PalmTree className="h-5 w-5 text-green-600" />,
+      icon: <tree className="h-5 w-5 text-green-600" />,
       image: 'https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=2025'
     },
     {
       id: 'Rome',
       name: 'Rome',
-      icon: <Landmark className="h-5 w-5 text-gray-600" />,
+      icon: <landmark className="h-5 w-5 text-gray-600" />,
       image: 'https://images.unsplash.com/photo-1525874684015-58379d421a52?q=80&w=2070'
     }
   ];
@@ -241,25 +256,25 @@ const TravelStyleStep: React.FC<TravelStyleStepProps> = ({ selected, onSelect })
     {
       id: 'backpacker',
       name: 'Backpacker budget',
-      icon: <Backpack size={24} className="text-wander-orange" />,
+      icon: <backpack size={24} className="text-wander-orange" />,
       description: 'Hostels, street food, and local experiences'
     },
     {
       id: 'luxe',
       name: 'Luxe & relaxed',
-      icon: <Wine size={24} className="text-wander-purple" />,
+      icon: <wine size={24} className="text-wander-purple" />,
       description: 'Fine dining, spa days, and premium accommodations'
     },
     {
       id: 'nature',
       name: 'Nature & hiking',
-      icon: <TreePine size={24} className="text-green-600" />,
+      icon: <treePine size={24} className="text-green-600" />,
       description: 'Trails, wildlife, and outdoor adventures'
     },
     {
       id: 'urban',
       name: 'Urban explorer',
-      icon: <Building2 size={24} className="text-blue-600" />,
+      icon: <building2 size={24} className="text-blue-600" />,
       description: 'City tours, museums, and cultural hotspots'
     }
   ];
@@ -310,25 +325,25 @@ const TravelVibeStep: React.FC<TravelVibeStepProps> = ({ selected, onSelect }) =
     {
       id: 'sunrise',
       name: 'Sunrise hikes',
-      icon: <Sunrise size={32} />,
+      icon: <sunrise size={32} />,
       color: 'bg-amber-50 text-amber-600 border-amber-200'
     },
     {
       id: 'festival',
       name: 'Festival nights',
-      icon: <Music size={32} />,
+      icon: <music size={32} />,
       color: 'bg-purple-50 text-purple-600 border-purple-200'
     },
     {
       id: 'foodie',
       name: 'Foodie trails',
-      icon: <Utensils size={32} />,
+      icon: <utensils size={32} />,
       color: 'bg-red-50 text-red-600 border-red-200'
     },
     {
       id: 'insta',
       name: 'Insta moments',
-      icon: <CameraIcon size={32} />,
+      icon: <cameraIcon size={32} />,
       color: 'bg-blue-50 text-blue-600 border-blue-200'
     }
   ];
@@ -411,22 +426,22 @@ const MustPackItemStep: React.FC<MustPackItemStepProps> = ({ selected, onSelect 
     {
       id: 'camera',
       name: 'Camera',
-      icon: <CameraIcon size={32} className="text-gray-700" />
+      icon: <cameraIcon size={32} className="text-gray-700" />
     },
     {
       id: 'headphones',
       name: 'Headphones',
-      icon: <Headphones size={32} className="text-gray-700" />
+      icon: <headphones size={32} className="text-gray-700" />
     },
     {
       id: 'journal',
       name: 'Journal',
-      icon: <Book size={32} className="text-gray-700" />
+      icon: <book size={32} className="text-gray-700" />
     },
     {
       id: 'snacks',
       name: 'Snacks',
-      icon: <Candy size={32} className="text-gray-700" />
+      icon: <candy size={32} className="text-gray-700" />
     }
   ];
 
