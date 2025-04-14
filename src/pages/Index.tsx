@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Globe, ArrowDownToLine } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -77,13 +78,26 @@ const Index: React.FC = () => {
                 Find travel companions who match your vibe. No stress, just tap, match, and explore!
               </p>
               
-              <Button 
-                size="lg" 
-                onClick={() => setIsAppView(true)} 
-                className="button-gradient text-lg px-8 py-6 rounded-full"
-              >
-                Start Wandering
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  onClick={() => setIsAppView(true)} 
+                  className="button-gradient text-lg px-8 py-6 rounded-full"
+                >
+                  Start Wandering
+                </Button>
+                
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="text-lg px-8 py-6 rounded-full border-wander-purple text-wander-purple hover:bg-wander-purple/10"
+                >
+                  <Link to="/onboarding">
+                    Personalize Your Experience
+                  </Link>
+                </Button>
+              </div>
             </div>
             
             <div className="absolute bottom-12 w-full flex justify-center animate-bounce">
@@ -131,14 +145,27 @@ const Index: React.FC = () => {
               <p className="text-xl mb-8 text-white/90">
                 Join thousands of travelers finding adventure buddies around the world.
               </p>
-              <Button 
-                size="lg" 
-                onClick={() => setIsAppView(true)}
-                className="bg-white text-wander-purple hover:bg-white/90 text-lg"
-              >
-                <Globe className="mr-2 h-5 w-5" />
-                Get Started
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  onClick={() => setIsAppView(true)}
+                  className="bg-white text-wander-purple hover:bg-white/90 text-lg"
+                >
+                  <Globe className="mr-2 h-5 w-5" />
+                  Get Started
+                </Button>
+
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="border-white text-white hover:bg-white/20"
+                >
+                  <Link to="/onboarding">
+                    Take the Quiz
+                  </Link>
+                </Button>
+              </div>
             </div>
           </section>
         </main>
