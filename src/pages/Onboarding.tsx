@@ -1,28 +1,29 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  airplane, 
-  flag, 
-  tree, 
-  landmark, 
-  backpack, 
-  wine, 
-  treePine, 
-  building2, 
-  sunrise, 
-  music, 
-  utensils, 
-  camera as CameraIcon, 
-  headphones, 
-  book, 
-  candy 
+  Plane, 
+  Flag, 
+  Trees, 
+  Landmark, 
+  Backpack, 
+  Wine, 
+  TreePine, 
+  Building2, 
+  Sunrise, 
+  Music, 
+  Utensils, 
+  Camera, 
+  Headphones, 
+  Book, 
+  Candy 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 
 // Define types for our onboarding state
-type Destination = 'Japan' | 'Iceland' | 'Bali' | 'Rome' | 'custom';
+type Destination = 'Delhi' | 'Goa' | 'Kerala' | 'Rajasthan' | 'custom';
 type TravelStyle = 'backpacker' | 'luxe' | 'nature' | 'urban';
 type TravelVibe = 'sunrise' | 'festival' | 'foodie' | 'insta';
 type TripDuration = 'weekend' | 'week' | 'month' | 'unlimited';
@@ -164,36 +165,36 @@ const DestinationStep: React.FC<DestinationStepProps> = ({
 }) => {
   const destinations: {id: Destination, name: string, icon: React.ReactNode, image: string}[] = [
     {
-      id: 'Japan',
-      name: 'Japan',
-      icon: <airplane className="h-5 w-5 text-blue-400" />,
-      image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070'
+      id: 'Delhi',
+      name: 'Delhi',
+      icon: <Landmark className="h-5 w-5 text-amber-600" />,
+      image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=2070'
     },
     {
-      id: 'Iceland',
-      name: 'Iceland',
-      icon: <flag className="h-5 w-5 text-blue-600" />,
-      image: 'https://images.unsplash.com/photo-1529963183134-61a90db47eaf?q=80&w=2070'
+      id: 'Goa',
+      name: 'Goa',
+      icon: <Trees className="h-5 w-5 text-green-600" />,
+      image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2074'
     },
     {
-      id: 'Bali',
-      name: 'Bali',
-      icon: <tree className="h-5 w-5 text-green-600" />,
-      image: 'https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=2025'
+      id: 'Kerala',
+      name: 'Kerala',
+      icon: <Trees className="h-5 w-5 text-emerald-600" />,
+      image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2070'
     },
     {
-      id: 'Rome',
-      name: 'Rome',
-      icon: <landmark className="h-5 w-5 text-gray-600" />,
-      image: 'https://images.unsplash.com/photo-1525874684015-58379d421a52?q=80&w=2070'
+      id: 'Rajasthan',
+      name: 'Rajasthan',
+      icon: <Landmark className="h-5 w-5 text-orange-600" />,
+      image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=2070'
     }
   ];
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8 text-center">Which place is calling your name right now?</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">Which place in India is calling your name right now?</h1>
       <p className="text-center mb-8 text-lg font-medium text-gray-600">
-        Bali breeze or Iceland freeze? Where would you rather be?
+        Goa's beaches or Rajasthan's palaces? Where would you rather be?
       </p>
       <p className="text-center italic mb-8 text-wander-purple">
         🎵 "Pack your bags, it's time to go—pick the place that steals the show!"
@@ -256,25 +257,25 @@ const TravelStyleStep: React.FC<TravelStyleStepProps> = ({ selected, onSelect })
     {
       id: 'backpacker',
       name: 'Backpacker budget',
-      icon: <backpack size={24} className="text-wander-orange" />,
+      icon: <Backpack size={24} className="text-wander-orange" />,
       description: 'Hostels, street food, and local experiences'
     },
     {
       id: 'luxe',
       name: 'Luxe & relaxed',
-      icon: <wine size={24} className="text-wander-purple" />,
+      icon: <Wine size={24} className="text-wander-purple" />,
       description: 'Fine dining, spa days, and premium accommodations'
     },
     {
       id: 'nature',
       name: 'Nature & hiking',
-      icon: <treePine size={24} className="text-green-600" />,
+      icon: <TreePine size={24} className="text-green-600" />,
       description: 'Trails, wildlife, and outdoor adventures'
     },
     {
       id: 'urban',
       name: 'Urban explorer',
-      icon: <building2 size={24} className="text-blue-600" />,
+      icon: <Building2 size={24} className="text-blue-600" />,
       description: 'City tours, museums, and cultural hotspots'
     }
   ];
@@ -325,25 +326,25 @@ const TravelVibeStep: React.FC<TravelVibeStepProps> = ({ selected, onSelect }) =
     {
       id: 'sunrise',
       name: 'Sunrise hikes',
-      icon: <sunrise size={32} />,
+      icon: <Sunrise size={32} />,
       color: 'bg-amber-50 text-amber-600 border-amber-200'
     },
     {
       id: 'festival',
       name: 'Festival nights',
-      icon: <music size={32} />,
+      icon: <Music size={32} />,
       color: 'bg-purple-50 text-purple-600 border-purple-200'
     },
     {
       id: 'foodie',
       name: 'Foodie trails',
-      icon: <utensils size={32} />,
+      icon: <Utensils size={32} />,
       color: 'bg-red-50 text-red-600 border-red-200'
     },
     {
       id: 'insta',
       name: 'Insta moments',
-      icon: <cameraIcon size={32} />,
+      icon: <Camera size={32} />,
       color: 'bg-blue-50 text-blue-600 border-blue-200'
     }
   ];
@@ -426,22 +427,22 @@ const MustPackItemStep: React.FC<MustPackItemStepProps> = ({ selected, onSelect 
     {
       id: 'camera',
       name: 'Camera',
-      icon: <cameraIcon size={32} className="text-gray-700" />
+      icon: <Camera size={32} className="text-gray-700" />
     },
     {
       id: 'headphones',
       name: 'Headphones',
-      icon: <headphones size={32} className="text-gray-700" />
+      icon: <Headphones size={32} className="text-gray-700" />
     },
     {
       id: 'journal',
       name: 'Journal',
-      icon: <book size={32} className="text-gray-700" />
+      icon: <Book size={32} className="text-gray-700" />
     },
     {
       id: 'snacks',
       name: 'Snacks',
-      icon: <candy size={32} className="text-gray-700" />
+      icon: <Candy size={32} className="text-gray-700" />
     }
   ];
 
